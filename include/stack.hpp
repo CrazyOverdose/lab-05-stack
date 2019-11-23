@@ -1,5 +1,5 @@
 #include <iostream>
-
+#include <except.hpp>
 
 template <typename T>
 struct Node
@@ -57,11 +57,22 @@ public:
 
     void pop()
     {
-        vertex = vertex->prev;
+
+        if (vertex == nullptr)
+        {
+            Except();
+        }
+        else {
+            vertex = vertex->prev;}
     }
 
     const T& head() const
     {
-        return vertex->value;
+        if (vertex == nullptr)
+        {
+            Except();
+        }
+        else {
+        return vertex->value;}
     }
 };
