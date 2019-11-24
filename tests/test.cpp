@@ -8,8 +8,11 @@ TEST(stack, push1)
 {
     stack <int> mystack;
 
-    mystack.push(2);
-    mystack.push(5);
+    const int a = 2;
+    const int b = 5;
+
+    mystack.push(a);
+    mystack.push(b);
 
     EXPECT_EQ(mystack.head(), 5);
 }
@@ -31,6 +34,13 @@ TEST(stack, except)
     stack <int> mystack;
 
     EXPECT_THROW(mystack.pop(), Exceptions);
+}
+
+TEST(stack, excepthead)
+{
+    stack <double> mystack;
+
+    EXPECT_THROW(mystack.head(), Exceptions);
 }
 
 TEST(stack, push2)
@@ -83,4 +93,18 @@ TEST(stack_for_uncopyable_types, push)
     mystack.push(4.6);
 
     EXPECT_EQ(mystack.head(), 4.6);
+}
+
+TEST(stack_for_uncopyable_types, except)
+{
+    stack_for_uncopyable_types <int> mystack;
+
+    EXPECT_THROW(mystack.pop(), Exceptions);
+}
+
+TEST(stack_for_uncopyable_types, excepthead)
+{
+    stack_for_uncopyable_types <int> mystack;
+
+    EXPECT_THROW(mystack.head(), Exceptions);
 }

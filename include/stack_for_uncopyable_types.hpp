@@ -1,4 +1,5 @@
 #include <iostream>
+#include "exceptions.hpp"
 
 using namespace std;
 
@@ -32,13 +33,19 @@ public:
 
     const T& head() const
     {
+        if (vertex_f_u_t == nullptr)
+            throw Exceptions();
+        else
         return vertex_f_u_t->value;
     }
 
     T pop()
     {
+        if (vertex_f_u_t == nullptr)
+            throw Exceptions();
+        else {
        auto remote = vertex_f_u_t->value;
             vertex_f_u_t = vertex_f_u_t->prev;
-            return remote;
+            return remote;}
     }
 };

@@ -57,7 +57,10 @@ public:
 
     const T& head() const
     {
-        return vertex->value;
+        if (vertex == nullptr)
+            throw Exceptions();
+        else
+            return vertex->value;
     }
     void pop()
     {
