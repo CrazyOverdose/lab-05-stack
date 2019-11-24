@@ -1,5 +1,5 @@
 #include <iostream>
-#include <except.hpp>
+#include "exceptions.hpp"
 
 template <typename T>
 struct Node
@@ -43,7 +43,7 @@ public:
             vertex->value = value;
             vertex->prev = nullptr;
         }
-        if (vertex != nullptr)   // новый элемент  = вершина
+        else  // новый элемент  = вершина
         {
             Node<T> *elem = new Node<T>;
 
@@ -55,24 +55,17 @@ public:
         }
     }
 
+    const T& head() const
+    {
+        return vertex->value;
+    }
     void pop()
     {
-
         if (vertex == nullptr)
         {
-            Except();
+            Exceptions();
         }
         else {
             vertex = vertex->prev;}
-    }
-
-    const T& head() const
-    {
-        if (vertex == nullptr)
-        {
-            Except();
-        }
-        else {
-        return vertex->value;}
     }
 };
