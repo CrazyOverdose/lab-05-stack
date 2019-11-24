@@ -33,14 +33,14 @@ TEST(stack, except)
 {
     stack <int> mystack;
 
-    EXPECT_THROW(mystack.pop(), Exceptions);
+    EXPECT_THROW(mystack.pop(), logic_error);
 }
 
 TEST(stack, excepthead)
 {
     stack <double> mystack;
 
-    EXPECT_THROW(mystack.head(), Exceptions);
+    EXPECT_THROW(mystack.head(), logic_error);
 }
 
 TEST(stack, push2)
@@ -99,12 +99,12 @@ TEST(stack_for_uncopyable_types, except)
 {
     stack_for_uncopyable_types <int> mystack;
 
-    EXPECT_THROW(mystack.pop(), Exceptions);
+    EXPECT_THROW(mystack.pop(), logic_error);
 }
 
 TEST(stack_for_uncopyable_types, excepthead)
 {
     stack_for_uncopyable_types <int> mystack;
 
-    EXPECT_THROW(mystack.head(), Exceptions);
+    EXPECT_THROW(mystack.head(), logic_error);
 }

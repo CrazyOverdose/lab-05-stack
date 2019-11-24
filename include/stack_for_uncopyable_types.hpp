@@ -1,5 +1,5 @@
 #include <iostream>
-#include "exceptions.hpp"
+#include <exception>
 
 using namespace std;
 
@@ -34,7 +34,7 @@ public:
     const T& head() const
     {
         if (vertex_f_u_t == nullptr)
-            throw Exceptions();
+            throw logic_error("The stack is empty");
         else
         return vertex_f_u_t->value;
     }
@@ -42,7 +42,7 @@ public:
     T pop()
     {
         if (vertex_f_u_t == nullptr)
-            throw Exceptions();
+            throw logic_error("The stack is empty");
         else {
        auto remote = vertex_f_u_t->value;
             vertex_f_u_t = vertex_f_u_t->prev;

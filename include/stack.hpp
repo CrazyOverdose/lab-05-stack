@@ -1,5 +1,6 @@
 #include <iostream>
-#include "exceptions.hpp"
+#include "exception"
+using namespace std;
 
 template <typename T>
 struct Node
@@ -58,14 +59,14 @@ public:
     const T& head() const
     {
         if (vertex == nullptr)
-            throw Exceptions();
+            throw logic_error("The stack is empty");
         else
             return vertex->value;
     }
     void pop()
     {
         if (vertex == nullptr)
-           throw Exceptions();
+            throw logic_error("The stack is empty");
         else if (vertex != nullptr)
         vertex = vertex->prev;
     }
