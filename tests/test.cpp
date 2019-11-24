@@ -26,6 +26,13 @@ TEST(stack, pop)
     EXPECT_EQ(mystack.head(), 2);
 }
 
+TEST(stack, except)
+{
+    stack <int> mystack;
+
+    EXPECT_THROW(mystack.pop(), Exceptions);
+}
+
 TEST(stack, push2)
 {
     stack <int> mystack;

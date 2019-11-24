@@ -62,10 +62,8 @@ public:
     void pop()
     {
         if (vertex == nullptr)
-        {
-            Exceptions();
-        }
-        else {
-            vertex = vertex->prev;}
+           throw Exceptions();
+        else if (vertex != nullptr)
+        vertex = vertex->prev;
     }
 };
