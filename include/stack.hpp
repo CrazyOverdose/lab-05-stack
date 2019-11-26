@@ -69,5 +69,4 @@ public:
             throw logic_error("The stack is empty");
         else if (vertex != nullptr)
         vertex = vertex->prev;
-    }
-};
+    } };

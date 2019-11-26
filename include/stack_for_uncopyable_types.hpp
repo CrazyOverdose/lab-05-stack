@@ -47,5 +47,4 @@ public:
        auto remote = vertex_f_u_t->value;
             vertex_f_u_t = vertex_f_u_t->prev;
             return remote;}
-    }
-};
+    } };
