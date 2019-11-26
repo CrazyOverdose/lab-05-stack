@@ -108,3 +108,14 @@ TEST(stack_for_uncopyable_types, excepthead)
 
     EXPECT_THROW(mystack.head(), logic_error);
 }
+
+
+TEST(stacks, movecory)
+{
+    EXPECT_EQ(is_move_assignable_v<stack_for_uncopyable_types<int>>, true); //по ссылке
+    EXPECT_EQ(is_move_constructible_v<stack_for_uncopyable_types<int>>, true); //по конструктору
+
+    EXPECT_EQ(is_move_assignable_v<stack<int>>, true); //по ссылке
+    EXPECT_EQ(is_move_constructible_v<stack<int>>, true);
+
+}
