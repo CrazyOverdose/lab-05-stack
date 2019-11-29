@@ -3,7 +3,9 @@
 #include <gtest/gtest.h>
 #include "stack_for_uncopyable_types.hpp"
 #include "stack.hpp"
+
 using namespace std;
+
 TEST(stack, push1)
 {
     stack <int> mystack;
@@ -110,12 +112,20 @@ TEST(stack_for_uncopyable_types, excepthead)
 }
 
 
-TEST(stacks, movecory)
+TEST (staks, testcopy)
 {
-    EXPECT_EQ(is_move_assignable_v<stack_for_uncopyable_types<int>>, true); //по ссылке
-    EXPECT_EQ(is_move_constructible_v<stack_for_uncopyable_types<int>>, true); //по конструктору
+    EXPECT_EQ (is_copy_constructible_v<stack<int>>, false);
+    EXPECT_EQ (is_copy_constructible_v<stack_for_uncopyable_types<int>>, false);
 
-    EXPECT_EQ(is_move_assignable_v<stack<int>>, true); //по ссылке
-    EXPECT_EQ(is_move_constructible_v<stack<int>>, true);
+    EXPECT_EQ (is_copy_assignable_v<stack<int>>, false);
+    EXPECT_EQ (is_copy_assignable_v<stack_for_uncopyable_types<int>>, false);
+}
 
+TEST (staks, testmove)
+{
+    EXPECT_EQ (is_move_constructible_v<stack<int>>, true);
+    EXPECT_EQ (is_move_constructible_v<stack_for_uncopyable_types<int>>, true);
+
+    EXPECT_EQ (is_move_assignable_v<stack<int>>, true);
+    EXPECT_EQ (is_move_assignable_v<stack_for_uncopyable_types<int>>, true);
 }

@@ -16,6 +16,13 @@ private:
     Node<T>* vertex = nullptr;  //вершина стэка
 
 public:
+
+     stack () = default;
+     stack(const stack &stack)= delete; //конструктор копирования
+
+     stack (stack&& te) = default;      // конструктор перемещения (constructible)
+     auto operator=(stack&& te) noexcept -> stack& = default; // (assignable)
+
     void push(T&& value)
     {
         if (vertex == nullptr)
@@ -69,4 +76,4 @@ public:
             throw logic_error("The stack is empty");
         else if (vertex != nullptr)
         vertex = vertex->prev;
-    } };
+    }};

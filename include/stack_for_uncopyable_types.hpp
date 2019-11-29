@@ -18,7 +18,14 @@ private:
     Node_f_u_t<T>* vertex_f_u_t = nullptr;  //вершина стэка
 
 public:
-    template <typename ... Args>
+
+    stack_for_uncopyable_types () = default;
+    stack_for_uncopyable_types(const stack_for_uncopyable_types &stack)= delete; //конструктор копирования
+
+    stack_for_uncopyable_types (stack_for_uncopyable_types&& te) = default;      // конструктор перемещения (constructible)
+   auto operator=(stack_for_uncopyable_types&& te) noexcept -> stack_for_uncopyable_types& = default; // (assignable)
+
+template <typename ... Args>
     void push_emplace(Args&&... value)
     {
         auto element = vertex_f_u_t;
@@ -47,4 +54,4 @@ public:
        auto remote = vertex_f_u_t->value;
             vertex_f_u_t = vertex_f_u_t->prev;
             return remote;}
-    } };
+    }};
